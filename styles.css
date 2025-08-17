@@ -9,8 +9,8 @@
     --dark-grey: #191919;
     --white: #faf9f6;
 
-    --heading: "Fit", sans-serif;
-    --text: "Input Mono", serif;
+    --heading: fit, sans-serif;
+    --text: input-mono, serif;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
@@ -63,9 +63,46 @@ table {
 }
 
 /*GLOBAL STYLES*/
+
+header a{
+    text-decoration: none;
+    color: var(--dark-grey);
+    text-transform: uppercase;
+}
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip{
+    position: absolute;
+    transform: translateY(-100%);
+    justify-content: center;
+    transition: transform 0.3s;
+    background: var(--dark-grey);
+    color: var(--white);
+    padding: 20px;
+}
+
+.skip:focus{
+    transform: translateY(25%);
+}
+
 body{
     background-color: var(--white);
     overflow-x: hidden;
+    font-family: var(--text);
+    font-weight: 400;
+}
+
+main:not(h1, h2, h3, h4, h5, h6){
+    line-height: 1.5;
+    font-size: 1.15rem;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -75,15 +112,69 @@ h1, h2, h3, h4, h5, h6{
 }
 
 h1{
-    font-size: 6rem;
+    font-size: 5rem;
 }
 
 h2{
     font-size: 5rem;
 }
 
-body:not(h1, h2, h3, h4, h5, h6){
-    font-family: var(--text);
+nav ul{
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    width: 100%;
+}
+
+nav ul li a{
+    display: block;
+    background-color: var(--dark-grey);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 1.5rem;
+}
+
+nav ul li a:active{
+    background-color: var(--white);
+    color: var(--dark-grey);
+}
+
+/*
+.mobile-head{
+    display: none;
+}
+*/
+
+main{
+    padding: 8%;
+    display: flex;
+    flex-direction: column;
+}
+
+p{
+    margin-bottom: 25px;
+}
+
+.section-card{
+    margin-bottom: 20%;
+}
+
+.section-card:not(#contact) a{
+    background: var(--dark-grey);
+    color: var(--white);
+    padding: 10px 20px;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 2px solid var(--dark-grey);
+    transition: all .2s;
+}
+
+.section-card:not(#contact) a:hover, .section-card:not(#contact) a:focus{
+    background-color: var(--white);
+    color: var(--dark-grey);
+    font-weight: bold;
+    transition: all .2s;
 }
 
 footer{
@@ -95,4 +186,10 @@ footer{
     flex-direction: column;
     gap: .25rem;
     padding: 100px;
+}
+
+@media (min-width: 700px){
+    .mobile-head{
+        display: contents;
+    }
 }
